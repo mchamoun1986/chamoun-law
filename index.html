@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamoun & Associates | Law Firm – Lebanon</title>
+    <meta name="description" content="Chamoun & Associates Law Firm – Trusted legal expertise in Lebanon. Civil, corporate, commercial law and dispute resolution. Senior Partner: Maitre Elie Chamoun.">
+    <meta name="keywords" content="Chamoun Associates, law firm Lebanon, Elie Chamoun lawyer, avocat Liban, corporate law Lebanon, civil law, dispute resolution, Zalqa, Mount Lebanon">
+    <meta property="og:title" content="Chamoun & Associates | Law Firm – Lebanon">
+    <meta property="og:description" content="Over a decade of trusted legal expertise across Lebanon. Civil, corporate, commercial law and dispute resolution.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --navy-900: #0a1628;
+            --navy-800: #0f2040;
+            --navy-700: #152d54;
+            --navy-600: #1b3a68;
+            --gold-400: #d4a853;
+            --gold-300: #e2c07c;
+            --gold-200: #f0d8a5;
+            --cream: #faf6f0;
+            --cream-dark: #f0ebe2;
+            --white: #ffffff;
+            --gray-100: #f5f5f5;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-arabic: 'Amiri', serif;
+            --shadow-sm: 0 1px 3px rgba(10,22,40,0.08);
+            --shadow-md: 0 4px 20px rgba(10,22,40,0.12);
+            --shadow-lg: 0 10px 40px rgba(10,22,40,0.18);
+            --shadow-gold: 0 4px 20px rgba(212,168,83,0.25);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: var(--font-body);
+            color: var(--gray-900);
+            background: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+        /* ========== UTILITIES ========== */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section-pad { padding: 100px 0; }
+        .gold-line { width: 60px; height: 3px; background: var(--gold-400); margin-bottom: 20px; }
+        .gold-line-center { margin-left: auto; margin-right: auto; }
+        .section-label {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-400);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        .text-center { text-align: center; }
+        .arabic-accent {
+            font-family: var(--font-arabic);
+            color: var(--gold-400);
+            font-size: 1.1em;
+        }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0 24px;
+            transition: var(--transition);
+            background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(10, 22, 40, 0.97);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        .navbar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        .navbar.scrolled .navbar-inner { height: 68px; }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .nav-logo-icon {
+            width: 44px; height: 44px;
+            background: linear-gradient(135deg, var(--gold-400), var(--gold-300));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--navy-900);
+        }
+        .nav-logo-text {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.2;
+        }
+        .nav-logo-text small {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold-400);
+            margin-top: 2px;
+        }
+        .nav-links { display: flex; align-items: center; gap: 36px; }
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 0; height: 2px;
+            background: var(--gold-400);
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta {
+            background: transparent !important;
+            border: 1.5px solid var(--gold-400) !important;
+            color: var(--gold-400) !important;
+            padding: 10px 24px !important;
+            border-radius: 4px;
+            font-size: 0.82rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+        .nav-cta:hover {
+            background: var(--gold-400) !important;
+            color: var(--navy-900) !important;
+        }
+        .nav-cta::after { display: none !important; }
+
+        /* Mobile menu */
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+        .nav-toggle span { width: 24px; height: 2px; background: var(--white); transition: var(--transition); border-radius: 1px; }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 40%, var(--navy-700) 100%);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212,168,83,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(212,168,83,0.04) 0%, transparent 50%);
+        }
+        .hero-pattern {
+            position: absolute;
+            top: 0; right: 0;
+            width: 50%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: repeating-linear-gradient(
+                45deg, transparent, transparent 40px,
+                rgba(212,168,83,0.5) 40px, rgba(212,168,83,0.5) 41px
+            );
+        }
+        .hero-arabic {
+            position: absolute;
+            right: 60px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--font-arabic);
+            font-size: 14rem;
+            color: rgba(212,168,83,0.04);
+            line-height: 1;
+            writing-mode: vertical-rl;
+            pointer-events: none;
+            user-select: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            padding-top: 80px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212,168,83,0.1);
+            border: 1px solid rgba(212,168,83,0.25);
+            border-radius: 50px;
+            padding: 8px 20px;
+            margin-bottom: 32px;
+        }
+        .hero-badge-dot {
+            width: 6px; height: 6px;
+            background: var(--gold-400);
+            border-radius: 50%;
+        }
+        .hero-badge span {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--gold-300);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+        .hero h1 .gold { color: var(--gold-400); }
+        .hero-arabic-sub {
+            font-family: var(--font-arabic);
+            font-size: 1.6rem;
+            color: var(--gold-400);
+            opacity: 0.7;
+            margin-bottom: 28px;
+            direction: rtl;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.9;
+            margin-bottom: 40px;
+            max-width: 560px;
+        }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold-400), var(--gold-300));
+            color: var(--navy-900);
+            padding: 16px 36px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--white);
+            padding: 16px 36px;
+            border-radius: 4px;
+            border: 1.5px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-secondary:hover { border-color: var(--gold-400); color: var(--gold-400); }
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .hero-stat h3 {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: var(--gold-400);
+            line-height: 1;
+        }
+        .hero-stat p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 6px 0 0;
+        }
+
+        /* ========== TRUST BAR ========== */
+        .trust-bar {
+            background: var(--navy-900);
+            border-top: 1px solid rgba(212,168,83,0.1);
+            border-bottom: 1px solid rgba(212,168,83,0.1);
+            padding: 28px 0;
+        }
+        .trust-bar-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.5px;
+        }
+        .trust-item svg { width: 20px; height: 20px; fill: var(--gold-400); opacity: 0.7; }
+
+        /* ========== ABOUT ========== */
+        .about { background: var(--white); }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .about-image-wrap {
+            position: relative;
+        }
+        .about-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-image img {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+        .about-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-400);
+        }
+        .about-image-placeholder svg { width: 80px; height: 80px; opacity: 0.4; margin-bottom: 16px; }
+        .about-image-placeholder span { font-size: 0.8rem; opacity: 0.5; letter-spacing: 1px; text-transform: uppercase; }
+        .about-image-frame {
+            position: absolute;
+            top: -16px; left: -16px;
+            width: 120px; height: 120px;
+            border-top: 3px solid var(--gold-400);
+            border-left: 3px solid var(--gold-400);
+            border-radius: 8px 0 0 0;
+            pointer-events: none;
+        }
+        .about-image-frame-2 {
+            position: absolute;
+            bottom: -16px; right: -16px;
+            width: 120px; height: 120px;
+            border-bottom: 3px solid var(--gold-400);
+            border-right: 3px solid var(--gold-400);
+            border-radius: 0 0 8px 0;
+            pointer-events: none;
+        }
+        .about-content .section-title { color: var(--navy-900); }
+        .about-text {
+            font-size: 1.02rem;
+            color: var(--gray-700);
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+        .about-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .about-highlight {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: var(--cream);
+            border-radius: 6px;
+        }
+        .about-highlight svg {
+            width: 20px; height: 20px;
+            fill: var(--gold-400);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .about-highlight strong {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 2px;
+        }
+        .about-highlight span {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+        }
+
+        /* ========== PRACTICE AREAS ========== */
+        .practice { background: var(--cream); }
+        .practice-header { text-align: center; margin-bottom: 60px; }
+        .practice-header .section-subtitle { margin: 0 auto; }
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .practice-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .practice-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, var(--gold-400), var(--gold-300));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .practice-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(212,168,83,0.15);
+        }
+        .practice-card:hover::before { opacity: 1; }
+        .practice-icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, rgba(212,168,83,0.1), rgba(212,168,83,0.05));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .practice-icon svg { width: 28px; height: 28px; fill: var(--gold-400); }
+        .practice-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 12px;
+        }
+        .practice-card p {
+            font-size: 0.92rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+        .practice-card .arabic-label {
+            font-family: var(--font-arabic);
+            font-size: 0.9rem;
+            color: var(--gold-400);
+            opacity: 0.6;
+            margin-top: 16px;
+            direction: rtl;
+        }
+
+        /* ========== TEAM ========== */
+        .team { background: var(--white); }
+        .team-header { text-align: center; margin-bottom: 60px; }
+        .team-header .section-subtitle { margin: 0 auto; }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+        .team-card {
+            text-align: center;
+            transition: var(--transition);
+        }
+        .team-card:hover { transform: translateY(-4px); }
+        .team-photo {
+            width: 200px; height: 200px;
+            margin: 0 auto 24px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--cream);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .team-photo-placeholder {
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .team-photo-placeholder svg { width: 60px; height: 60px; fill: var(--gold-400); opacity: 0.4; }
+        .team-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .team-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 4px;
+        }
+        .team-card .team-title {
+            font-size: 0.82rem;
+            color: var(--gold-400);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .team-card p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .team-card-featured .team-photo {
+            width: 220px; height: 220px;
+            border-color: var(--gold-400);
+        }
+
+        /* ========== WHY CHOOSE US ========== */
+        .why {
+            background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .why::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(212,168,83,0.05) 0%, transparent 60%);
+        }
+        .why .section-title { color: var(--white); }
+        .why .section-subtitle { color: rgba(255,255,255,0.55); }
+        .why-header { text-align: center; margin-bottom: 60px; position: relative; }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            position: relative;
+        }
+        .why-card {
+            text-align: center;
+            padding: 40px 28px;
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        .why-card:hover {
+            border-color: rgba(212,168,83,0.2);
+            background: rgba(255,255,255,0.02);
+        }
+        .why-card-num {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--gold-400);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .why-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials { background: var(--cream); }
+        .testimonials-header { text-align: center; margin-bottom: 60px; }
+        .testimonials-header .section-subtitle { margin: 0 auto; }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
+        }
+        .testimonial-card {
+            background: var(--white);
+            padding: 36px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            transition: var(--transition);
+        }
+        .testimonial-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--gold-400);
+            opacity: 0.3;
+            line-height: 1;
+            position: absolute;
+            top: 20px; left: 28px;
+        }
+        .testimonial-card p {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 24px;
+            padding-top: 20px;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid var(--cream-dark);
+            padding-top: 20px;
+        }
+        .testimonial-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy-800), var(--navy-700));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-400);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .testimonial-author strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--navy-800);
+        }
+        .testimonial-author span {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+        }
+
+        /* ========== CONTACT ========== */
+        .contact { background: var(--white); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+        }
+        .contact-info { padding-top: 8px; }
+        .contact-info .section-title { color: var(--navy-900); }
+        .contact-text {
+            font-size: 1rem;
+            color: var(--gray-500);
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+        .contact-details { display: flex; flex-direction: column; gap: 24px; }
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .contact-item-icon {
+            width: 48px; height: 48px;
+            background: var(--cream);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-item-icon svg { width: 22px; height: 22px; fill: var(--gold-400); }
+        .contact-item strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--navy-800);
+            margin-bottom: 2px;
+        }
+        .contact-item span, .contact-item a {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+        }
+        .contact-item a:hover { color: var(--gold-400); }
+        .contact-form-wrap {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 44px;
+        }
+        .contact-form-wrap h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 8px;
+        }
+        .contact-form-wrap > p {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            margin-bottom: 28px;
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--navy-800);
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--white);
+            border: 1.5px solid var(--gray-300);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--gray-900);
+            transition: var(--transition);
+            outline: none;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold-400);
+            box-shadow: 0 0 0 3px rgba(212,168,83,0.1);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--navy-800), var(--navy-900));
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 8px;
+        }
+        .form-submit:hover { background: linear-gradient(135deg, var(--navy-700), var(--navy-800)); box-shadow: var(--shadow-md); }
+
+        /* ========== MAP ========== */
+        .map-section {
+            height: 350px;
+            background: var(--navy-800);
+            position: relative;
+            overflow: hidden;
+        }
+        .map-section iframe {
+            width: 100%; height: 100%;
+            border: 0;
+            filter: grayscale(0.3) contrast(1.1);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--navy-900);
+            color: rgba(255,255,255,0.5);
+            padding: 60px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 48px;
+            padding-bottom: 48px;
+        }
+        .footer-brand .nav-logo { margin-bottom: 20px; }
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.4);
+            max-width: 300px;
+        }
+        .footer h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.45);
+        }
+        .footer ul a:hover { color: var(--gold-400); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        .footer-bottom a { color: var(--gold-400); }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 968px) {
+            .about-grid { grid-template-columns: 1fr; gap: 48px; }
+            .about-image-wrap { max-width: 400px; margin: 0 auto; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-arabic { display: none; }
+            .hero-stats { gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .section-pad { padding: 70px 0; }
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(10,22,40,0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 28px;
+                z-index: 999;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { font-size: 1.1rem; color: var(--white); }
+            .nav-toggle { display: flex; z-index: 1001; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .hero h1 { font-size: 2.2rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .about-highlights { grid-template-columns: 1fr; }
+            .trust-bar-inner { gap: 24px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+            .contact-form-wrap { padding: 28px 20px; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+        <a href="#" class="nav-logo" aria-label="Chamoun & Associates Home">
+            <div class="nav-logo-icon">C</div>
+            <div class="nav-logo-text">
+                Chamoun & Associates
+                <small>Law Firm</small>
+            </div>
+        </a>
+        <div class="nav-links" id="navLinks" role="menubar">
+            <a href="#about" role="menuitem">About</a>
+            <a href="#practice" role="menuitem">Practice Areas</a>
+            <a href="#team" role="menuitem">Our Team</a>
+            <a href="#testimonials" role="menuitem">Testimonials</a>
+            <a href="#contact" class="nav-cta" role="menuitem">Contact Us</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-arabic" aria-hidden="true">العدل أساس الملك</div>
+    <div class="container">
+        <div class="hero-content fade-up">
+            <div class="hero-badge">
+                <div class="hero-badge-dot"></div>
+                <span>Established Legal Practice in Lebanon</span>
+            </div>
+            <h1>Trusted Legal<br>Counsel for a<br><span class="gold">Complex World</span></h1>
+            <div class="hero-arabic-sub" aria-label="Arabic: Chamoun and Associates - Justice and Law">مكتب شمعون وشركاه للمحاماة</div>
+            <p>With over a decade of experience navigating Lebanon's legal landscape, Chamoun & Associates delivers strategic, results-driven counsel across civil, corporate, and commercial law.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">
+                    Schedule a Consultation
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#practice" class="btn-secondary">Our Expertise</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <h3>10+</h3>
+                    <p>Years of Experience</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>500+</h3>
+                    <p>Cases Handled</p>
+                </div>
+                <div class="hero-stat">
+                    <h3>95%</h3>
+                    <p>Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TRUST BAR ========== -->
+<div class="trust-bar">
+    <div class="container">
+        <div class="trust-bar-inner">
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                نقابة المحامين في بيروت — Beirut Bar Association
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
+                خرّيج جامعة الروح القدس — الكسليك — USEK Alumni
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                فريق متعدّد اللغات — Multilingual Team
+            </div>
+            <div class="trust-item">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                سجلّ حافل بالنجاحات — Proven Track Record
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== ABOUT ========== -->
+<section class="about section-pad" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image-wrap fade-up">
+                <div class="about-image-frame"></div>
+                <div class="about-image">
+                    <div class="about-image-placeholder">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                        <span>Photo of Me. Elie Chamoun</span>
+                    </div>
+                </div>
+                <div class="about-image-frame-2"></div>
+            </div>
+            <div class="about-content fade-up">
+                <span class="section-label">About the Firm</span>
+                <div class="gold-line"></div>
+                <h2 class="section-title">A Legacy of Legal<br>Excellence in Lebanon</h2>
+                <p class="about-text">Founded by <strong>Maitre Elie Chamoun</strong>, Chamoun & Associates has established itself as a leading law firm in Mount Lebanon. With deep roots in the region and a thorough understanding of the Lebanese legal framework, we provide comprehensive legal solutions tailored to each client's unique needs.</p>
+                <p class="about-text">A graduate of the prestigious <strong>Holy Spirit University of Kaslik (USEK)</strong>, Me. Chamoun brings over a decade of experience spanning civil, corporate, commercial, and dispute resolution matters. Our firm combines traditional legal values with modern, strategic approaches.</p>
+                <div class="about-highlights">
+                    <div class="about-highlight">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                        <div>
+                            <strong>Integrity First</strong>
+                            <span>Ethical practice at our core</span>
+                        </div>
+                    </div>
+                    <div class="about-highlight">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        <div>
+                            <strong>Client-Centered</strong>
+                            <span>Personalized strategies</span>
+                        </div>
+                    </div>
+                    <div class="about-highlight">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 00-1.38-3.56A8.03 8.03 0 0118.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 015.08 16zm2.95-8H5.08a7.987 7.987 0 014.33-3.56A15.65 15.65 0 008.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 01-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                        <div>
+                            <strong>Multilingual</strong>
+                            <span>Arabic, French, English</span>
+                        </div>
+                    </div>
+                    <div class="about-highlight">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                        <div>
+                            <strong>Full-Service</strong>
+                            <span>End-to-end legal support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PRACTICE AREAS ========== -->
+<section class="practice section-pad" id="practice">
+    <div class="container">
+        <div class="practice-header fade-up">
+            <span class="section-label">Practice Areas</span>
+            <div class="gold-line gold-line-center"></div>
+            <h2 class="section-title">Comprehensive Legal<br>Expertise</h2>
+            <p class="section-subtitle">Our firm covers a wide range of legal disciplines, delivering strategic counsel tailored to Lebanon's unique regulatory environment.</p>
+        </div>
+        <div class="practice-grid">
+            <div class="practice-card fade-up">
+                <div class="practice-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                </div>
+                <h3>Civil Law</h3>
+                <p>Comprehensive representation in civil disputes, property matters, family law, inheritance, and personal rights under Lebanese civil code.</p>
+                <div class="arabic-label">القانون المدني</div>
+            </div>
+            <div class="practice-card fade-up">
+                <div class="practice-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
+                </div>
+                <h3>Corporate Law</h3>
+                <p>Strategic advice on company formation, governance, mergers & acquisitions, shareholder agreements, and regulatory compliance.</p>
+                <div class="arabic-label">قانون الشركات</div>
+            </div>
+            <div class="practice-card fade-up">
+                <div class="practice-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                </div>
+                <h3>Commercial Law</h3>
+                <p>Expert handling of commercial contracts, trade disputes, banking law, intellectual property, and business transactions.</p>
+                <div class="arabic-label">القانون التجاري</div>
+            </div>
+            <div class="practice-card fade-up">
+                <div class="practice-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg>
+                </div>
+                <h3>Dispute Resolution</h3>
+                <p>Skilled litigation, arbitration, and mediation services. We pursue optimal outcomes through negotiation or decisive courtroom advocacy.</p>
+                <div class="arabic-label">حل النزاعات</div>
+            </div>
+            <div class="practice-card fade-up">
+                <div class="practice-icon">
+                    <svg viewBox="0 0 24 24"><path d="M21 5v6.59l-3-3.01-4 4.01-4-4-7.71 7.71 1.41 1.41L10 11.71l4 4 5.71-5.71-3 3.01H21V5z"/></svg>
+                </div>
+                <h3>Real Estate Law</h3>
+                <p>Guidance on property acquisition, real estate transactions, leasing agreements, land registration, and construction disputes.</p>
+                <div class="arabic-label">القانون العقاري</div>
+            </div>
+            <div class="practice-card fade-up">
+                <div class="practice-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <h3>International Law</h3>
+                <p>Cross-border legal advisory for international businesses, foreign investments in Lebanon, and expatriate legal matters.</p>
+                <div class="arabic-label">القانون الدولي</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TEAM ========== -->
+<section class="team section-pad" id="team">
+    <div class="container">
+        <div class="team-header fade-up">
+            <span class="section-label">Our Team</span>
+            <div class="gold-line gold-line-center"></div>
+            <h2 class="section-title">Meet Our Legal<br>Professionals</h2>
+            <p class="section-subtitle">A dedicated team of experienced attorneys committed to delivering exceptional legal counsel.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card team-card-featured fade-up">
+                <div class="team-photo">
+                    <div class="team-photo-placeholder">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                </div>
+                <h3>Me. Elie Chamoun</h3>
+                <div class="team-title">Senior Partner — Founder</div>
+                <p>Over 10 years of legal experience. Graduate of USEK. Expert in civil, corporate, and commercial law with a deep understanding of Lebanon's legal landscape.</p>
+            </div>
+            <div class="team-card fade-up">
+                <div class="team-photo">
+                    <div class="team-photo-placeholder">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                </div>
+                <h3>Me. [Associate Name]</h3>
+                <div class="team-title">Associate Attorney</div>
+                <p>Specializing in corporate governance and commercial transactions with a focus on Lebanese and international business law.</p>
+            </div>
+            <div class="team-card fade-up">
+                <div class="team-photo">
+                    <div class="team-photo-placeholder">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                </div>
+                <h3>Me. [Associate Name]</h3>
+                <div class="team-title">Associate Attorney</div>
+                <p>Focused on dispute resolution and litigation, bringing strategic advocacy and meticulous case preparation.</p>
+            </div>
+            <div class="team-card fade-up">
+                <div class="team-photo">
+                    <div class="team-photo-placeholder">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                </div>
+                <h3>Me. [Associate Name]</h3>
+                <div class="team-title">Associate Attorney</div>
+                <p>Expert in real estate law and property transactions, providing thorough guidance for clients across Mount Lebanon.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== WHY CHOOSE US ========== -->
+<section class="why section-pad">
+    <div class="container">
+        <div class="why-header fade-up">
+            <span class="section-label">Why Choose Us</span>
+            <div class="gold-line gold-line-center"></div>
+            <h2 class="section-title">The Chamoun<br>Difference</h2>
+            <p class="section-subtitle">What sets our firm apart in Lebanon's legal landscape.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card fade-up">
+                <div class="why-card-num">01</div>
+                <h3>Deep Local Expertise</h3>
+                <p>Born and raised in Lebanon, our team understands the intricacies of the local legal system, culture, and business environment.</p>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-card-num">02</div>
+                <h3>Strategic Approach</h3>
+                <p>We don't just apply the law — we craft strategies that align with your goals, anticipating challenges before they arise.</p>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-card-num">03</div>
+                <h3>Transparent Communication</h3>
+                <p>Clear, honest, and regular updates. We keep you informed at every stage and explain complex legal matters in plain language.</p>
+            </div>
+            <div class="why-card fade-up">
+                <div class="why-card-num">04</div>
+                <h3>Results-Driven</h3>
+                <p>Our track record speaks for itself. We measure our success by the outcomes we deliver for our clients.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section class="testimonials section-pad" id="testimonials">
+    <div class="container">
+        <div class="testimonials-header fade-up">
+            <span class="section-label">Client Testimonials</span>
+            <div class="gold-line gold-line-center"></div>
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">The trust our clients place in us is the foundation of our practice.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-up">
+                <div class="testimonial-quote">"</div>
+                <p>Maitre Chamoun handled our corporate restructuring with exceptional professionalism. His strategic thinking and deep knowledge of Lebanese commercial law saved us significant time and resources.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AH</div>
+                    <div>
+                        <strong>Ahmad H.</strong>
+                        <span>CEO, Trading Company — Beirut</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <div class="testimonial-quote">"</div>
+                <p>We were facing a complex property dispute that had dragged on for years. The team at Chamoun & Associates resolved it efficiently and favorably. I cannot recommend them highly enough.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">NK</div>
+                    <div>
+                        <strong>Nadia K.</strong>
+                        <span>Property Owner — Mount Lebanon</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-up">
+                <div class="testimonial-quote">"</div>
+                <p>As a foreign investor, navigating Lebanese law seemed daunting. Me. Chamoun provided clear, bilingual guidance that made the entire process smooth. A truly reliable legal partner.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JM</div>
+                    <div>
+                        <strong>Jean-Pierre M.</strong>
+                        <span>Investor — Paris / Beirut</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ARABIC QUOTE BANNER ========== -->
+<div style="background: linear-gradient(135deg, var(--gold-400), var(--gold-300)); padding: 48px 24px; text-align: center;">
+    <div class="container">
+        <p style="font-family: var(--font-arabic); font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy-900); line-height: 1.6; margin-bottom: 8px; direction: rtl;">
+            « العدل أساس الملك »
+        </p>
+        <p style="font-family: var(--font-body); font-size: 0.85rem; color: var(--navy-800); opacity: 0.7; letter-spacing: 2px; text-transform: uppercase;">
+            "Justice is the foundation of governance"
+        </p>
+    </div>
+</div>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact section-pad" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info fade-up">
+                <span class="section-label">Get in Touch</span>
+                <div class="gold-line"></div>
+                <h2 class="section-title">Schedule Your<br>Consultation</h2>
+                <p class="contact-text">Whether you're facing a legal challenge or need strategic counsel for your business, our team is ready to assist. Contact us today for a confidential consultation.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Office Address</strong>
+                            <span>Zalqa, Mount Lebanon<br>Lebanon</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Phone</strong>
+                            <a href="tel:+9611234567">+961 X XXX XXX</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:info@chamounlaw.com">info@chamounlaw.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        </div>
+                        <div>
+                            <strong>Working Hours</strong>
+                            <span>Mon – Fri: 9:00 AM – 6:00 PM<br>Sat: 9:00 AM – 1:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap fade-up">
+                <h3>Send Us a Message</h3>
+                <p>Fill in the form below and we'll get back to you within 24 hours.</p>
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+961 XX XXX XXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Legal Area</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a practice area</option>
+                            <option value="civil">Civil Law</option>
+                            <option value="corporate">Corporate Law</option>
+                            <option value="commercial">Commercial Law</option>
+                            <option value="dispute">Dispute Resolution</option>
+                            <option value="realestate">Real Estate Law</option>
+                            <option value="international">International Law</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" required placeholder="Briefly describe your legal matter..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== MAP ========== -->
+<div class="map-section">
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13236.5!2d35.57!3d33.88!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f17d3e7b1e2d1%3A0x5c5b5c5c5c5c5c5c!2sZalqa%2C%20Lebanon!5e0!3m2!1sen!2slb!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Chamoun & Associates office location in Zalqa, Lebanon">
+    </iframe>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <div class="nav-logo-icon">C</div>
+                    <div class="nav-logo-text">
+                        Chamoun & Associates
+                        <small>Law Firm</small>
+                    </div>
+                </a>
+                <p>Trusted legal counsel in Lebanon since 2014. Providing comprehensive legal solutions with integrity and excellence.</p>
+                <p style="font-family: var(--font-arabic); color: var(--gold-400); opacity: 0.6; margin-top: 12px; direction: rtl; font-size: 1rem;">مكتب شمعون وشركاه للمحاماة — الزلقا، لبنان</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#practice">Practice Areas</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Practice Areas</h4>
+                <ul>
+                    <li><a href="#practice">Civil Law</a></li>
+                    <li><a href="#practice">Corporate Law</a></li>
+                    <li><a href="#practice">Commercial Law</a></li>
+                    <li><a href="#practice">Dispute Resolution</a></li>
+                    <li><a href="#practice">Real Estate Law</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <ul>
+                    <li>Zalqa, Mount Lebanon</li>
+                    <li>Lebanon</li>
+                    <li><a href="tel:+9611234567">+961 X XXX XXX</a></li>
+                    <li><a href="mailto:info@chamounlaw.com">info@chamounlaw.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Chamoun & Associates Law Firm. All rights reserved.</span>
+            <span>Designed with precision and care</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('active');
+        navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Form handling
+    function handleSubmit(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('.form-submit');
+        const originalText = btn.textContent;
+        btn.textContent = 'Message Sent!';
+        btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+        setTimeout(() => {
+            btn.textContent = originalText;
+            btn.style.background = '';
+            e.target.reset();
+        }, 3000);
+    }
+</script>
+
+</body>
+</html>
