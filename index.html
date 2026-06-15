@@ -912,6 +912,64 @@
             transform: translateY(0);
         }
 
+        /* ========== LANGUAGE SWITCHER ========== */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            border: 1px solid rgba(212,168,83,0.4);
+            border-radius: 6px;
+            padding: 3px;
+            margin-left: 8px;
+        }
+        .lang-switch button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: rgba(255,255,255,0.7);
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 5px 9px;
+            border-radius: 4px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .lang-switch button[data-lang="ar"] { font-family: var(--font-arabic); font-size: 0.92rem; }
+        .lang-switch button:hover { color: var(--white); }
+        .lang-switch button.active {
+            background: var(--gold-400);
+            color: var(--navy-900);
+        }
+
+        /* ========== RTL SUPPORT ========== */
+        [dir="rtl"] body, [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .hero-content { margin-left: auto; }
+        [dir="rtl"] .hero p,
+        [dir="rtl"] .section-subtitle,
+        [dir="rtl"] .about-text,
+        [dir="rtl"] .contact-text,
+        [dir="rtl"] .footer-brand p { text-align: right; }
+        [dir="rtl"] .hero-arabic-sub { direction: rtl; }
+        [dir="rtl"] .gold-line { margin-left: 0; margin-right: 0; }
+        [dir="rtl"] .gold-line-center { margin-left: auto; margin-right: auto; }
+        [dir="rtl"] .about-highlight,
+        [dir="rtl"] .contact-item,
+        [dir="rtl"] .trust-item { flex-direction: row-reverse; text-align: right; }
+        [dir="rtl"] .nav-links { flex-direction: row-reverse; }
+        [dir="rtl"] .lang-switch { margin-left: 0; margin-right: 8px; }
+        [dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+        [dir="rtl"] .nav-links a::after { left: auto; right: 0; }
+        [dir="rtl"] .arabic-label,
+        [dir="rtl"] .practice-card .arabic-label { direction: rtl; }
+        [dir="rtl"] .btn-primary svg,
+        [dir="rtl"] .hero-buttons svg { transform: scaleX(-1); }
+        @media (max-width: 768px) {
+            [dir="rtl"] .footer-bottom { flex-direction: column; }
+        }
+
         /* ========== RESPONSIVE ========== */
         @media (max-width: 968px) {
             .about-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -962,11 +1020,16 @@
             </div>
         </a>
         <div class="nav-links" id="navLinks" role="menubar">
-            <a href="#about" role="menuitem">About</a>
-            <a href="#practice" role="menuitem">Practice Areas</a>
-            <a href="#team" role="menuitem">Our Team</a>
-            <a href="#testimonials" role="menuitem">Testimonials</a>
-            <a href="#contact" class="nav-cta" role="menuitem">Contact Us</a>
+            <a href="#about" role="menuitem" data-i18n="nav.about">About</a>
+            <a href="#practice" role="menuitem" data-i18n="nav.practice">Practice Areas</a>
+            <a href="#team" role="menuitem" data-i18n="nav.team">Our Team</a>
+            <a href="#testimonials" role="menuitem" data-i18n="nav.testimonials">Testimonials</a>
+            <a href="#contact" class="nav-cta" role="menuitem" data-i18n="nav.contact">Contact Us</a>
+            <div class="lang-switch" id="langSwitch" role="group" aria-label="Language selector">
+                <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+                <button type="button" data-lang="fr" onclick="setLang('fr')">FR</button>
+                <button type="button" data-lang="ar" onclick="setLang('ar')">ع</button>
+            </div>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -982,30 +1045,30 @@
         <div class="hero-content fade-up">
             <div class="hero-badge">
                 <div class="hero-badge-dot"></div>
-                <span>Established Legal Practice in Lebanon</span>
+                <span data-i18n="hero.badge">Established Legal Practice in Lebanon</span>
             </div>
-            <h1>Trusted Legal<br>Counsel for a<br><span class="gold">Complex World</span></h1>
+            <h1 data-i18n-html="hero.h1">Trusted Legal<br>Counsel for a<br><span class="gold">Complex World</span></h1>
             <div class="hero-arabic-sub" aria-label="Arabic: Chamoun and Associates - Justice and Law">مكتب شمعون وشركاه للمحاماة</div>
-            <p>With over a decade of experience navigating Lebanon's legal landscape, Chamoun & Associates delivers strategic, results-driven counsel across civil, corporate, and commercial law.</p>
+            <p data-i18n="hero.intro">With over a decade of experience navigating Lebanon's legal landscape, Chamoun & Associates delivers strategic, results-driven counsel across civil, corporate, and commercial law.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">
-                    Schedule a Consultation
+                    <span data-i18n="hero.cta1">Schedule a Consultation</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
-                <a href="#practice" class="btn-secondary">Our Expertise</a>
+                <a href="#practice" class="btn-secondary" data-i18n="hero.cta2">Our Expertise</a>
             </div>
             <div class="hero-stats">
                 <div class="hero-stat">
                     <h3>10+</h3>
-                    <p>Years of Experience</p>
+                    <p data-i18n="hero.stat1">Years of Experience</p>
                 </div>
                 <div class="hero-stat">
                     <h3>500+</h3>
-                    <p>Cases Handled</p>
+                    <p data-i18n="hero.stat2">Cases Handled</p>
                 </div>
                 <div class="hero-stat">
                     <h3>95%</h3>
-                    <p>Success Rate</p>
+                    <p data-i18n="hero.stat3">Success Rate</p>
                 </div>
             </div>
         </div>
@@ -1018,19 +1081,19 @@
         <div class="trust-bar-inner">
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                نقابة المحامين في بيروت — Beirut Bar Association
+                <span data-i18n="trust.bar">نقابة المحامين في بيروت — Beirut Bar Association</span>
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
-                خرّيج جامعة الروح القدس — الكسليك — USEK Alumni
+                <span data-i18n="trust.usek">خرّيج جامعة الروح القدس — الكسليك — USEK Alumni</span>
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                فريق متعدّد اللغات — Multilingual Team
+                <span data-i18n="trust.multi">فريق متعدّد اللغات — Multilingual Team</span>
             </div>
             <div class="trust-item">
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                سجلّ حافل بالنجاحات — Proven Track Record
+                <span data-i18n="trust.record">سجلّ حافل بالنجاحات — Proven Track Record</span>
             </div>
         </div>
     </div>
@@ -1048,38 +1111,38 @@
                 <div class="about-image-frame-2"></div>
             </div>
             <div class="about-content fade-up">
-                <span class="section-label">About the Firm</span>
+                <span class="section-label" data-i18n="about.label">About the Firm</span>
                 <div class="gold-line"></div>
-                <h2 class="section-title">A Legacy of Legal<br>Excellence in Lebanon</h2>
-                <p class="about-text">Founded by <strong>Maitre Elie Chamoun</strong>, Chamoun & Associates has established itself as a leading law firm in Mount Lebanon. With deep roots in the region and a thorough understanding of the Lebanese legal framework, we provide comprehensive legal solutions tailored to each client's unique needs.</p>
-                <p class="about-text">A graduate of the prestigious <strong>Holy Spirit University of Kaslik (USEK)</strong>, Me. Chamoun brings over a decade of experience spanning civil, corporate, commercial, and dispute resolution matters. Our firm combines traditional legal values with modern, strategic approaches.</p>
+                <h2 class="section-title" data-i18n-html="about.title">A Legacy of Legal<br>Excellence in Lebanon</h2>
+                <p class="about-text" data-i18n-html="about.p1">Founded by <strong>Maitre Elie Chamoun</strong>, Chamoun & Associates has established itself as a leading law firm in Mount Lebanon. With deep roots in the region and a thorough understanding of the Lebanese legal framework, we provide comprehensive legal solutions tailored to each client's unique needs.</p>
+                <p class="about-text" data-i18n-html="about.p2">A graduate of the prestigious <strong>Holy Spirit University of Kaslik (USEK)</strong>, Me. Chamoun brings over a decade of experience spanning civil, corporate, commercial, and dispute resolution matters. Our firm combines traditional legal values with modern, strategic approaches.</p>
                 <div class="about-highlights">
                     <div class="about-highlight">
                         <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
                         <div>
-                            <strong>Integrity First</strong>
-                            <span>Ethical practice at our core</span>
+                            <strong data-i18n="about.h1t">Integrity First</strong>
+                            <span data-i18n="about.h1s">Ethical practice at our core</span>
                         </div>
                     </div>
                     <div class="about-highlight">
                         <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                         <div>
-                            <strong>Client-Centered</strong>
-                            <span>Personalized strategies</span>
+                            <strong data-i18n="about.h2t">Client-Centered</strong>
+                            <span data-i18n="about.h2s">Personalized strategies</span>
                         </div>
                     </div>
                     <div class="about-highlight">
                         <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 00-1.38-3.56A8.03 8.03 0 0118.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 015.08 16zm2.95-8H5.08a7.987 7.987 0 014.33-3.56A15.65 15.65 0 008.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 01-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
                         <div>
-                            <strong>Multilingual</strong>
-                            <span>Arabic, French, English</span>
+                            <strong data-i18n="about.h3t">Multilingual</strong>
+                            <span data-i18n="about.h3s">Arabic, French, English</span>
                         </div>
                     </div>
                     <div class="about-highlight">
                         <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
                         <div>
-                            <strong>Full-Service</strong>
-                            <span>End-to-end legal support</span>
+                            <strong data-i18n="about.h4t">Full-Service</strong>
+                            <span data-i18n="about.h4s">End-to-end legal support</span>
                         </div>
                     </div>
                 </div>
@@ -1092,58 +1155,58 @@
 <section class="practice section-pad" id="practice">
     <div class="container">
         <div class="practice-header fade-up">
-            <span class="section-label">Practice Areas</span>
+            <span class="section-label" data-i18n="practice.label">Practice Areas</span>
             <div class="gold-line gold-line-center"></div>
-            <h2 class="section-title">Comprehensive Legal<br>Expertise</h2>
-            <p class="section-subtitle">Our firm covers a wide range of legal disciplines, delivering strategic counsel tailored to Lebanon's unique regulatory environment.</p>
+            <h2 class="section-title" data-i18n-html="practice.title">Comprehensive Legal<br>Expertise</h2>
+            <p class="section-subtitle" data-i18n="practice.subtitle">Our firm covers a wide range of legal disciplines, delivering strategic counsel tailored to Lebanon's unique regulatory environment.</p>
         </div>
         <div class="practice-grid">
             <div class="practice-card fade-up">
                 <div class="practice-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
                 </div>
-                <h3>Civil Law</h3>
-                <p>Comprehensive representation in civil disputes, property matters, family law, inheritance, and personal rights under Lebanese civil code.</p>
+                <h3 data-i18n="pa.civil.t">Civil Law</h3>
+                <p data-i18n="pa.civil.d">Comprehensive representation in civil disputes, property matters, family law, inheritance, and personal rights under Lebanese civil code.</p>
                 <div class="arabic-label">القانون المدني</div>
             </div>
             <div class="practice-card fade-up">
                 <div class="practice-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
                 </div>
-                <h3>Corporate Law</h3>
-                <p>Strategic advice on company formation, governance, mergers & acquisitions, shareholder agreements, and regulatory compliance.</p>
+                <h3 data-i18n="pa.corp.t">Corporate Law</h3>
+                <p data-i18n="pa.corp.d">Strategic advice on company formation, governance, mergers & acquisitions, shareholder agreements, and regulatory compliance.</p>
                 <div class="arabic-label">قانون الشركات</div>
             </div>
             <div class="practice-card fade-up">
                 <div class="practice-icon">
                     <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
                 </div>
-                <h3>Commercial Law</h3>
-                <p>Expert handling of commercial contracts, trade disputes, banking law, intellectual property, and business transactions.</p>
+                <h3 data-i18n="pa.comm.t">Commercial Law</h3>
+                <p data-i18n="pa.comm.d">Expert handling of commercial contracts, trade disputes, banking law, intellectual property, and business transactions.</p>
                 <div class="arabic-label">القانون التجاري</div>
             </div>
             <div class="practice-card fade-up">
                 <div class="practice-icon">
                     <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg>
                 </div>
-                <h3>Dispute Resolution</h3>
-                <p>Skilled litigation, arbitration, and mediation services. We pursue optimal outcomes through negotiation or decisive courtroom advocacy.</p>
+                <h3 data-i18n="pa.disp.t">Dispute Resolution</h3>
+                <p data-i18n="pa.disp.d">Skilled litigation, arbitration, and mediation services. We pursue optimal outcomes through negotiation or decisive courtroom advocacy.</p>
                 <div class="arabic-label">حل النزاعات</div>
             </div>
             <div class="practice-card fade-up">
                 <div class="practice-icon">
                     <svg viewBox="0 0 24 24"><path d="M21 5v6.59l-3-3.01-4 4.01-4-4-7.71 7.71 1.41 1.41L10 11.71l4 4 5.71-5.71-3 3.01H21V5z"/></svg>
                 </div>
-                <h3>Real Estate Law</h3>
-                <p>Guidance on property acquisition, real estate transactions, leasing agreements, land registration, and construction disputes.</p>
+                <h3 data-i18n="pa.real.t">Real Estate Law</h3>
+                <p data-i18n="pa.real.d">Guidance on property acquisition, real estate transactions, leasing agreements, land registration, and construction disputes.</p>
                 <div class="arabic-label">القانون العقاري</div>
             </div>
             <div class="practice-card fade-up">
                 <div class="practice-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
                 </div>
-                <h3>International Law</h3>
-                <p>Cross-border legal advisory for international businesses, foreign investments in Lebanon, and expatriate legal matters.</p>
+                <h3 data-i18n="pa.intl.t">International Law</h3>
+                <p data-i18n="pa.intl.d">Cross-border legal advisory for international businesses, foreign investments in Lebanon, and expatriate legal matters.</p>
                 <div class="arabic-label">القانون الدولي</div>
             </div>
         </div>
@@ -1154,19 +1217,19 @@
 <section class="team section-pad" id="team">
     <div class="container">
         <div class="team-header fade-up">
-            <span class="section-label">Our Team</span>
+            <span class="section-label" data-i18n="team.label">Our Team</span>
             <div class="gold-line gold-line-center"></div>
-            <h2 class="section-title">Meet Our Legal<br>Professionals</h2>
-            <p class="section-subtitle">A dedicated team of experienced attorneys committed to delivering exceptional legal counsel.</p>
+            <h2 class="section-title" data-i18n-html="team.title">Meet Our Legal<br>Professionals</h2>
+            <p class="section-subtitle" data-i18n="team.subtitle">A dedicated team of experienced attorneys committed to delivering exceptional legal counsel.</p>
         </div>
         <div class="team-grid">
             <div class="team-card team-card-featured fade-up">
                 <div class="team-photo">
                     <img src="elie-chamoun.jpg" alt="Maitre Elie Chamoun">
                 </div>
-                <h3>Me. Elie Chamoun</h3>
-                <div class="team-title">Senior Partner — Founder</div>
-                <p>Over 10 years of legal experience. Graduate of USEK. Expert in civil, corporate, and commercial law with a deep understanding of Lebanon's legal landscape.</p>
+                <h3 data-i18n="team.m1.name">Me. Elie Chamoun</h3>
+                <div class="team-title" data-i18n="team.m1.role">Senior Partner — Founder</div>
+                <p data-i18n="team.m1.bio">Over 10 years of legal experience. Graduate of USEK. Expert in civil, corporate, and commercial law with a deep understanding of Lebanon's legal landscape.</p>
             </div>
             <div class="team-card fade-up">
                 <div class="team-photo">
@@ -1174,9 +1237,9 @@
                         <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     </div>
                 </div>
-                <h3>Me. [Associate Name]</h3>
-                <div class="team-title">Associate Attorney</div>
-                <p>Specializing in corporate governance and commercial transactions with a focus on Lebanese and international business law.</p>
+                <h3 data-i18n="team.m2.name">Me. [Associate Name]</h3>
+                <div class="team-title" data-i18n="team.m2.role">Associate Attorney</div>
+                <p data-i18n="team.m2.bio">Specializing in corporate governance and commercial transactions with a focus on Lebanese and international business law.</p>
             </div>
             <div class="team-card fade-up">
                 <div class="team-photo">
@@ -1184,9 +1247,9 @@
                         <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     </div>
                 </div>
-                <h3>Me. [Associate Name]</h3>
-                <div class="team-title">Associate Attorney</div>
-                <p>Focused on dispute resolution and litigation, bringing strategic advocacy and meticulous case preparation.</p>
+                <h3 data-i18n="team.m3.name">Me. [Associate Name]</h3>
+                <div class="team-title" data-i18n="team.m3.role">Associate Attorney</div>
+                <p data-i18n="team.m3.bio">Focused on dispute resolution and litigation, bringing strategic advocacy and meticulous case preparation.</p>
             </div>
             <div class="team-card fade-up">
                 <div class="team-photo">
@@ -1194,9 +1257,9 @@
                         <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                     </div>
                 </div>
-                <h3>Me. [Associate Name]</h3>
-                <div class="team-title">Associate Attorney</div>
-                <p>Expert in real estate law and property transactions, providing thorough guidance for clients across Mount Lebanon.</p>
+                <h3 data-i18n="team.m4.name">Me. [Associate Name]</h3>
+                <div class="team-title" data-i18n="team.m4.role">Associate Attorney</div>
+                <p data-i18n="team.m4.bio">Expert in real estate law and property transactions, providing thorough guidance for clients across Mount Lebanon.</p>
             </div>
         </div>
     </div>
@@ -1206,31 +1269,31 @@
 <section class="why section-pad">
     <div class="container">
         <div class="why-header fade-up">
-            <span class="section-label">Why Choose Us</span>
+            <span class="section-label" data-i18n="why.label">Why Choose Us</span>
             <div class="gold-line gold-line-center"></div>
-            <h2 class="section-title">The Chamoun<br>Difference</h2>
-            <p class="section-subtitle">What sets our firm apart in Lebanon's legal landscape.</p>
+            <h2 class="section-title" data-i18n-html="why.title">The Chamoun<br>Difference</h2>
+            <p class="section-subtitle" data-i18n="why.subtitle">What sets our firm apart in Lebanon's legal landscape.</p>
         </div>
         <div class="why-grid">
             <div class="why-card fade-up">
                 <div class="why-card-num">01</div>
-                <h3>Deep Local Expertise</h3>
-                <p>Born and raised in Lebanon, our team understands the intricacies of the local legal system, culture, and business environment.</p>
+                <h3 data-i18n="why.c1.t">Deep Local Expertise</h3>
+                <p data-i18n="why.c1.d">Born and raised in Lebanon, our team understands the intricacies of the local legal system, culture, and business environment.</p>
             </div>
             <div class="why-card fade-up">
                 <div class="why-card-num">02</div>
-                <h3>Strategic Approach</h3>
-                <p>We don't just apply the law — we craft strategies that align with your goals, anticipating challenges before they arise.</p>
+                <h3 data-i18n="why.c2.t">Strategic Approach</h3>
+                <p data-i18n="why.c2.d">We don't just apply the law — we craft strategies that align with your goals, anticipating challenges before they arise.</p>
             </div>
             <div class="why-card fade-up">
                 <div class="why-card-num">03</div>
-                <h3>Transparent Communication</h3>
-                <p>Clear, honest, and regular updates. We keep you informed at every stage and explain complex legal matters in plain language.</p>
+                <h3 data-i18n="why.c3.t">Transparent Communication</h3>
+                <p data-i18n="why.c3.d">Clear, honest, and regular updates. We keep you informed at every stage and explain complex legal matters in plain language.</p>
             </div>
             <div class="why-card fade-up">
                 <div class="why-card-num">04</div>
-                <h3>Results-Driven</h3>
-                <p>Our track record speaks for itself. We measure our success by the outcomes we deliver for our clients.</p>
+                <h3 data-i18n="why.c4.t">Results-Driven</h3>
+                <p data-i18n="why.c4.d">Our track record speaks for itself. We measure our success by the outcomes we deliver for our clients.</p>
             </div>
         </div>
     </div>
@@ -1240,42 +1303,42 @@
 <section class="testimonials section-pad" id="testimonials">
     <div class="container">
         <div class="testimonials-header fade-up">
-            <span class="section-label">Client Testimonials</span>
+            <span class="section-label" data-i18n="test.label">Client Testimonials</span>
             <div class="gold-line gold-line-center"></div>
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-subtitle">The trust our clients place in us is the foundation of our practice.</p>
+            <h2 class="section-title" data-i18n="test.title">What Our Clients Say</h2>
+            <p class="section-subtitle" data-i18n="test.subtitle">The trust our clients place in us is the foundation of our practice.</p>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card fade-up">
                 <div class="testimonial-quote">"</div>
-                <p>Maitre Chamoun handled our corporate restructuring with exceptional professionalism. His strategic thinking and deep knowledge of Lebanese commercial law saved us significant time and resources.</p>
+                <p data-i18n="test.t1.quote">Maitre Chamoun handled our corporate restructuring with exceptional professionalism. His strategic thinking and deep knowledge of Lebanese commercial law saved us significant time and resources.</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">AH</div>
                     <div>
                         <strong>Ahmad H.</strong>
-                        <span>CEO, Trading Company — Beirut</span>
+                        <span data-i18n="test.t1.role">CEO, Trading Company — Beirut</span>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card fade-up">
                 <div class="testimonial-quote">"</div>
-                <p>We were facing a complex property dispute that had dragged on for years. The team at Chamoun & Associates resolved it efficiently and favorably. I cannot recommend them highly enough.</p>
+                <p data-i18n="test.t2.quote">We were facing a complex property dispute that had dragged on for years. The team at Chamoun & Associates resolved it efficiently and favorably. I cannot recommend them highly enough.</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">NK</div>
                     <div>
                         <strong>Nadia K.</strong>
-                        <span>Property Owner — Mount Lebanon</span>
+                        <span data-i18n="test.t2.role">Property Owner — Mount Lebanon</span>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card fade-up">
                 <div class="testimonial-quote">"</div>
-                <p>As a foreign investor, navigating Lebanese law seemed daunting. Me. Chamoun provided clear, bilingual guidance that made the entire process smooth. A truly reliable legal partner.</p>
+                <p data-i18n="test.t3.quote">As a foreign investor, navigating Lebanese law seemed daunting. Me. Chamoun provided clear, bilingual guidance that made the entire process smooth. A truly reliable legal partner.</p>
                 <div class="testimonial-author">
                     <div class="testimonial-avatar">JM</div>
                     <div>
                         <strong>Jean-Pierre M.</strong>
-                        <span>Investor — Paris / Beirut</span>
+                        <span data-i18n="test.t3.role">Investor — Paris / Beirut</span>
                     </div>
                 </div>
             </div>
@@ -1289,7 +1352,7 @@
         <p lang="ar" dir="rtl" style="font-family: var(--font-arabic); font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--navy-900); line-height: 1.6; margin-bottom: 8px; direction: rtl; unicode-bidi: isolate;">
             «العدل أساس الملك»
         </p>
-        <p style="font-family: var(--font-body); font-size: 0.85rem; color: var(--navy-800); opacity: 0.7; letter-spacing: 2px; text-transform: uppercase;">
+        <p data-i18n="banner.translation" style="font-family: var(--font-body); font-size: 0.85rem; color: var(--navy-800); opacity: 0.7; letter-spacing: 2px; text-transform: uppercase;">
             "Justice is the foundation of governance"
         </p>
     </div>
@@ -1300,18 +1363,18 @@
     <div class="container">
         <div class="contact-grid">
             <div class="contact-info fade-up">
-                <span class="section-label">Get in Touch</span>
+                <span class="section-label" data-i18n="contact.label">Get in Touch</span>
                 <div class="gold-line"></div>
-                <h2 class="section-title">Schedule Your<br>Consultation</h2>
-                <p class="contact-text">Whether you're facing a legal challenge or need strategic counsel for your business, our team is ready to assist. Contact us today for a confidential consultation.</p>
+                <h2 class="section-title" data-i18n-html="contact.title">Schedule Your<br>Consultation</h2>
+                <p class="contact-text" data-i18n="contact.text">Whether you're facing a legal challenge or need strategic counsel for your business, our team is ready to assist. Contact us today for a confidential consultation.</p>
                 <div class="contact-details">
                     <div class="contact-item">
                         <div class="contact-item-icon">
                             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                         </div>
                         <div>
-                            <strong>Office Address</strong>
-                            <span>Starbucks Building, 9th Floor<br>Zalka Main Highway, Zalka — Mount Lebanon, Lebanon<br><em style="color:var(--gold-400);font-size:0.92em;">Located in the well-known Starbucks Zalka building — easy to find.</em></span>
+                            <strong data-i18n="contact.addr.t">Office Address</strong>
+                            <span data-i18n-html="contact.addr.v">Starbucks Building, 9th Floor<br>Zalka Main Highway, Zalka — Mount Lebanon, Lebanon<br><em style="color:var(--gold-400);font-size:0.92em;">Located in the well-known Starbucks Zalka building — easy to find.</em></span>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1319,7 +1382,7 @@
                             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                         </div>
                         <div>
-                            <strong>Phone</strong>
+                            <strong data-i18n="contact.phone.t">Phone</strong>
                             <a href="tel:+96170947217">+961 70 947 217</a>
                         </div>
                     </div>
@@ -1328,7 +1391,7 @@
                             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                         </div>
                         <div>
-                            <strong>Email</strong>
+                            <strong data-i18n="contact.email.t">Email</strong>
                             <a href="mailto:eliejchamoun@gmail.com">eliejchamoun@gmail.com</a>
                         </div>
                     </div>
@@ -1337,57 +1400,57 @@
                             <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                         </div>
                         <div>
-                            <strong>Working Hours</strong>
-                            <span>Mon – Fri: 9:00 AM – 6:00 PM<br>Sat: 9:00 AM – 1:00 PM</span>
+                            <strong data-i18n="contact.hours.t">Working Hours</strong>
+                            <span data-i18n-html="contact.hours.v">Mon – Fri: 9:00 AM – 6:00 PM<br>Sat: 9:00 AM – 1:00 PM</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="contact-form-wrap fade-up">
-                <h3>Send Us a Message</h3>
-                <p>Fill in the form below and we'll get back to you within 24 hours.</p>
+                <h3 data-i18n="form.title">Send Us a Message</h3>
+                <p data-i18n="form.subtitle">Fill in the form below and we'll get back to you within 24 hours.</p>
                 <form id="contactForm" onsubmit="handleSubmit(event)">
                     <input type="hidden" name="_subject" value="New enquiry — Chamoun & Associates website">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required placeholder="Your first name">
+                            <label for="firstName" data-i18n="form.firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Your first name" data-i18n-placeholder="form.firstName.ph">
                         </div>
                         <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required placeholder="Your last name">
+                            <label for="lastName" data-i18n="form.lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Your last name" data-i18n-placeholder="form.lastName.ph">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email *</label>
+                            <label for="email" data-i18n="form.email">Email *</label>
                             <input type="email" id="email" name="email" required placeholder="your@email.com">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone</label>
+                            <label for="phone" data-i18n="form.phone">Phone</label>
                             <input type="tel" id="phone" name="phone" placeholder="+961 XX XXX XXX">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="subject">Legal Area</label>
+                        <label for="subject" data-i18n="form.legalArea">Legal Area</label>
                         <select id="subject" name="subject">
-                            <option value="">Select a practice area</option>
-                            <option value="civil">Civil Law</option>
-                            <option value="corporate">Corporate Law</option>
-                            <option value="commercial">Commercial Law</option>
-                            <option value="dispute">Dispute Resolution</option>
-                            <option value="realestate">Real Estate Law</option>
-                            <option value="international">International Law</option>
-                            <option value="other">Other</option>
+                            <option value="" data-i18n="form.opt.select">Select a practice area</option>
+                            <option value="civil" data-i18n="form.opt.civil">Civil Law</option>
+                            <option value="corporate" data-i18n="form.opt.corporate">Corporate Law</option>
+                            <option value="commercial" data-i18n="form.opt.commercial">Commercial Law</option>
+                            <option value="dispute" data-i18n="form.opt.dispute">Dispute Resolution</option>
+                            <option value="realestate" data-i18n="form.opt.realestate">Real Estate Law</option>
+                            <option value="international" data-i18n="form.opt.international">International Law</option>
+                            <option value="other" data-i18n="form.opt.other">Other</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Your Message *</label>
-                        <textarea id="message" name="message" required placeholder="Briefly describe your legal matter..."></textarea>
+                        <label for="message" data-i18n="form.message">Your Message *</label>
+                        <textarea id="message" name="message" required placeholder="Briefly describe your legal matter..." data-i18n-placeholder="form.message.ph"></textarea>
                     </div>
-                    <button type="submit" class="form-submit">Send Message</button>
+                    <button type="submit" class="form-submit" data-i18n="form.send">Send Message</button>
                 </form>
             </div>
         </div>
@@ -1417,48 +1480,478 @@
                         <small>Law Firm</small>
                     </div>
                 </a>
-                <p>Trusted legal counsel in Lebanon since 2014. Providing comprehensive legal solutions with integrity and excellence.</p>
+                <p data-i18n="footer.brand">Trusted legal counsel in Lebanon since 2014. Providing comprehensive legal solutions with integrity and excellence.</p>
                 <p style="font-family: var(--font-arabic); color: var(--gold-400); opacity: 0.6; margin-top: 12px; direction: rtl; font-size: 1rem;">مكتب شمعون وشركاه للمحاماة — الزلقا، لبنان</p>
             </div>
             <div>
-                <h4>Quick Links</h4>
+                <h4 data-i18n="footer.quick">Quick Links</h4>
                 <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#practice">Practice Areas</a></li>
-                    <li><a href="#team">Our Team</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" data-i18n="footer.quick.about">About Us</a></li>
+                    <li><a href="#practice" data-i18n="footer.quick.practice">Practice Areas</a></li>
+                    <li><a href="#team" data-i18n="footer.quick.team">Our Team</a></li>
+                    <li><a href="#testimonials" data-i18n="footer.quick.test">Testimonials</a></li>
+                    <li><a href="#contact" data-i18n="footer.quick.contact">Contact</a></li>
                 </ul>
             </div>
             <div>
-                <h4>Practice Areas</h4>
+                <h4 data-i18n="footer.pa">Practice Areas</h4>
                 <ul>
-                    <li><a href="#practice">Civil Law</a></li>
-                    <li><a href="#practice">Corporate Law</a></li>
-                    <li><a href="#practice">Commercial Law</a></li>
-                    <li><a href="#practice">Dispute Resolution</a></li>
-                    <li><a href="#practice">Real Estate Law</a></li>
+                    <li><a href="#practice" data-i18n="pa.civil.t">Civil Law</a></li>
+                    <li><a href="#practice" data-i18n="pa.corp.t">Corporate Law</a></li>
+                    <li><a href="#practice" data-i18n="pa.comm.t">Commercial Law</a></li>
+                    <li><a href="#practice" data-i18n="pa.disp.t">Dispute Resolution</a></li>
+                    <li><a href="#practice" data-i18n="pa.real.t">Real Estate Law</a></li>
                 </ul>
             </div>
             <div>
-                <h4>Contact</h4>
+                <h4 data-i18n="footer.contact">Contact</h4>
                 <ul>
-                    <li>Starbucks Building, 9th Floor</li>
-                    <li>Zalka Main Highway, Mount Lebanon</li>
+                    <li data-i18n="footer.addr1">Starbucks Building, 9th Floor</li>
+                    <li data-i18n="footer.addr2">Zalka Main Highway, Mount Lebanon</li>
                     <li><a href="tel:+96170947217">+961 70 947 217</a></li>
                     <li><a href="mailto:eliejchamoun@gmail.com">eliejchamoun@gmail.com</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <span>&copy; 2026 Chamoun & Associates Law Firm. All rights reserved.</span>
-            <span>Designed with precision and care</span>
+            <span data-i18n="footer.copyright">&copy; 2026 Chamoun & Associates Law Firm. All rights reserved.</span>
+            <span data-i18n="footer.tagline">Designed with precision and care</span>
         </div>
     </div>
 </footer>
 
 <!-- ========== JAVASCRIPT ========== -->
 <script>
+    // ========== I18N DICTIONARY ==========
+    const I18N = {
+        en: {
+            "nav.about": "About",
+            "nav.practice": "Practice Areas",
+            "nav.team": "Our Team",
+            "nav.testimonials": "Testimonials",
+            "nav.contact": "Contact Us",
+            "hero.badge": "Established Legal Practice in Lebanon",
+            "hero.h1": "Trusted Legal<br>Counsel for a<br><span class=\"gold\">Complex World</span>",
+            "hero.intro": "With over a decade of experience navigating Lebanon's legal landscape, Chamoun & Associates delivers strategic, results-driven counsel across civil, corporate, and commercial law.",
+            "hero.cta1": "Schedule a Consultation",
+            "hero.cta2": "Our Expertise",
+            "hero.stat1": "Years of Experience",
+            "hero.stat2": "Cases Handled",
+            "hero.stat3": "Success Rate",
+            "trust.bar": "نقابة المحامين في بيروت — Beirut Bar Association",
+            "trust.usek": "خرّيج جامعة الروح القدس — الكسليك — USEK Alumni",
+            "trust.multi": "فريق متعدّد اللغات — Multilingual Team",
+            "trust.record": "سجلّ حافل بالنجاحات — Proven Track Record",
+            "about.label": "About the Firm",
+            "about.title": "A Legacy of Legal<br>Excellence in Lebanon",
+            "about.p1": "Founded by <strong>Maitre Elie Chamoun</strong>, Chamoun & Associates has established itself as a leading law firm in Mount Lebanon. With deep roots in the region and a thorough understanding of the Lebanese legal framework, we provide comprehensive legal solutions tailored to each client's unique needs.",
+            "about.p2": "A graduate of the prestigious <strong>Holy Spirit University of Kaslik (USEK)</strong>, Me. Chamoun brings over a decade of experience spanning civil, corporate, commercial, and dispute resolution matters. Our firm combines traditional legal values with modern, strategic approaches.",
+            "about.h1t": "Integrity First", "about.h1s": "Ethical practice at our core",
+            "about.h2t": "Client-Centered", "about.h2s": "Personalized strategies",
+            "about.h3t": "Multilingual", "about.h3s": "Arabic, French, English",
+            "about.h4t": "Full-Service", "about.h4s": "End-to-end legal support",
+            "practice.label": "Practice Areas",
+            "practice.title": "Comprehensive Legal<br>Expertise",
+            "practice.subtitle": "Our firm covers a wide range of legal disciplines, delivering strategic counsel tailored to Lebanon's unique regulatory environment.",
+            "pa.civil.t": "Civil Law",
+            "pa.civil.d": "Comprehensive representation in civil disputes, property matters, family law, inheritance, and personal rights under Lebanese civil code.",
+            "pa.corp.t": "Corporate Law",
+            "pa.corp.d": "Strategic advice on company formation, governance, mergers & acquisitions, shareholder agreements, and regulatory compliance.",
+            "pa.comm.t": "Commercial Law",
+            "pa.comm.d": "Expert handling of commercial contracts, trade disputes, banking law, intellectual property, and business transactions.",
+            "pa.disp.t": "Dispute Resolution",
+            "pa.disp.d": "Skilled litigation, arbitration, and mediation services. We pursue optimal outcomes through negotiation or decisive courtroom advocacy.",
+            "pa.real.t": "Real Estate Law",
+            "pa.real.d": "Guidance on property acquisition, real estate transactions, leasing agreements, land registration, and construction disputes.",
+            "pa.intl.t": "International Law",
+            "pa.intl.d": "Cross-border legal advisory for international businesses, foreign investments in Lebanon, and expatriate legal matters.",
+            "team.label": "Our Team",
+            "team.title": "Meet Our Legal<br>Professionals",
+            "team.subtitle": "A dedicated team of experienced attorneys committed to delivering exceptional legal counsel.",
+            "team.m1.name": "Me. Elie Chamoun",
+            "team.m1.role": "Senior Partner — Founder",
+            "team.m1.bio": "Over 10 years of legal experience. Graduate of USEK. Expert in civil, corporate, and commercial law with a deep understanding of Lebanon's legal landscape.",
+            "team.m2.name": "Me. [Associate Name]",
+            "team.m2.role": "Associate Attorney",
+            "team.m2.bio": "Specializing in corporate governance and commercial transactions with a focus on Lebanese and international business law.",
+            "team.m3.name": "Me. [Associate Name]",
+            "team.m3.role": "Associate Attorney",
+            "team.m3.bio": "Focused on dispute resolution and litigation, bringing strategic advocacy and meticulous case preparation.",
+            "team.m4.name": "Me. [Associate Name]",
+            "team.m4.role": "Associate Attorney",
+            "team.m4.bio": "Expert in real estate law and property transactions, providing thorough guidance for clients across Mount Lebanon.",
+            "why.label": "Why Choose Us",
+            "why.title": "The Chamoun<br>Difference",
+            "why.subtitle": "What sets our firm apart in Lebanon's legal landscape.",
+            "why.c1.t": "Deep Local Expertise",
+            "why.c1.d": "Born and raised in Lebanon, our team understands the intricacies of the local legal system, culture, and business environment.",
+            "why.c2.t": "Strategic Approach",
+            "why.c2.d": "We don't just apply the law — we craft strategies that align with your goals, anticipating challenges before they arise.",
+            "why.c3.t": "Transparent Communication",
+            "why.c3.d": "Clear, honest, and regular updates. We keep you informed at every stage and explain complex legal matters in plain language.",
+            "why.c4.t": "Results-Driven",
+            "why.c4.d": "Our track record speaks for itself. We measure our success by the outcomes we deliver for our clients.",
+            "test.label": "Client Testimonials",
+            "test.title": "What Our Clients Say",
+            "test.subtitle": "The trust our clients place in us is the foundation of our practice.",
+            "test.t1.quote": "Maitre Chamoun handled our corporate restructuring with exceptional professionalism. His strategic thinking and deep knowledge of Lebanese commercial law saved us significant time and resources.",
+            "test.t1.role": "CEO, Trading Company — Beirut",
+            "test.t2.quote": "We were facing a complex property dispute that had dragged on for years. The team at Chamoun & Associates resolved it efficiently and favorably. I cannot recommend them highly enough.",
+            "test.t2.role": "Property Owner — Mount Lebanon",
+            "test.t3.quote": "As a foreign investor, navigating Lebanese law seemed daunting. Me. Chamoun provided clear, bilingual guidance that made the entire process smooth. A truly reliable legal partner.",
+            "test.t3.role": "Investor — Paris / Beirut",
+            "banner.translation": "\"Justice is the foundation of governance\"",
+            "contact.label": "Get in Touch",
+            "contact.title": "Schedule Your<br>Consultation",
+            "contact.text": "Whether you're facing a legal challenge or need strategic counsel for your business, our team is ready to assist. Contact us today for a confidential consultation.",
+            "contact.addr.t": "Office Address",
+            "contact.addr.v": "Starbucks Building, 9th Floor<br>Zalka Main Highway, Zalka — Mount Lebanon, Lebanon<br><em style=\"color:var(--gold-400);font-size:0.92em;\">Located in the well-known Starbucks Zalka building — easy to find.</em>",
+            "contact.phone.t": "Phone",
+            "contact.email.t": "Email",
+            "contact.hours.t": "Working Hours",
+            "contact.hours.v": "Mon – Fri: 9:00 AM – 6:00 PM<br>Sat: 9:00 AM – 1:00 PM",
+            "form.title": "Send Us a Message",
+            "form.subtitle": "Fill in the form below and we'll get back to you within 24 hours.",
+            "form.firstName": "First Name *", "form.firstName.ph": "Your first name",
+            "form.lastName": "Last Name *", "form.lastName.ph": "Your last name",
+            "form.email": "Email *",
+            "form.phone": "Phone",
+            "form.legalArea": "Legal Area",
+            "form.opt.select": "Select a practice area",
+            "form.opt.civil": "Civil Law",
+            "form.opt.corporate": "Corporate Law",
+            "form.opt.commercial": "Commercial Law",
+            "form.opt.dispute": "Dispute Resolution",
+            "form.opt.realestate": "Real Estate Law",
+            "form.opt.international": "International Law",
+            "form.opt.other": "Other",
+            "form.message": "Your Message *", "form.message.ph": "Briefly describe your legal matter...",
+            "form.send": "Send Message",
+            "form.sending": "Sending…",
+            "form.sent": "Message Sent ✓",
+            "form.failed": "Failed — please use WhatsApp",
+            "footer.brand": "Trusted legal counsel in Lebanon since 2014. Providing comprehensive legal solutions with integrity and excellence.",
+            "footer.quick": "Quick Links",
+            "footer.quick.about": "About Us",
+            "footer.quick.practice": "Practice Areas",
+            "footer.quick.team": "Our Team",
+            "footer.quick.test": "Testimonials",
+            "footer.quick.contact": "Contact",
+            "footer.pa": "Practice Areas",
+            "footer.contact": "Contact",
+            "footer.addr1": "Starbucks Building, 9th Floor",
+            "footer.addr2": "Zalka Main Highway, Mount Lebanon",
+            "footer.copyright": "© 2026 Chamoun & Associates Law Firm. All rights reserved.",
+            "footer.tagline": "Designed with precision and care",
+            "wa.aria": "Chat on WhatsApp"
+        },
+        fr: {
+            "nav.about": "À propos",
+            "nav.practice": "Domaines d'expertise",
+            "nav.team": "Notre équipe",
+            "nav.testimonials": "Témoignages",
+            "nav.contact": "Nous contacter",
+            "hero.badge": "Cabinet d'avocats établi au Liban",
+            "hero.h1": "Un conseil juridique<br>de confiance pour un<br><span class=\"gold\">monde complexe</span>",
+            "hero.intro": "Fort de plus de dix ans d'expérience au sein du paysage juridique libanais, Chamoun & Associates délivre un conseil stratégique et axé sur les résultats en droit civil, des sociétés et commercial.",
+            "hero.cta1": "Prendre rendez-vous",
+            "hero.cta2": "Notre expertise",
+            "hero.stat1": "Ans d'expérience",
+            "hero.stat2": "Affaires traitées",
+            "hero.stat3": "Taux de réussite",
+            "trust.bar": "نقابة المحامين في بيروت — Barreau de Beyrouth",
+            "trust.usek": "خرّيج جامعة الروح القدس — الكسليك — Diplômé de l'USEK",
+            "trust.multi": "فريق متعدّد اللغات — Équipe multilingue",
+            "trust.record": "سجلّ حافل بالنجاحات — Résultats éprouvés",
+            "about.label": "À propos du cabinet",
+            "about.title": "Un héritage d'excellence<br>juridique au Liban",
+            "about.p1": "Fondé par <strong>Maître Elie Chamoun</strong>, le cabinet Chamoun & Associates s'est imposé comme un cabinet d'avocats de référence au Mont-Liban. Profondément enraciné dans la région et doté d'une connaissance approfondie du cadre juridique libanais, nous proposons des solutions juridiques complètes, adaptées aux besoins propres à chaque client.",
+            "about.p2": "Diplômé de la prestigieuse <strong>Université Saint-Esprit de Kaslik (USEK)</strong>, Me Chamoun apporte plus d'une décennie d'expérience couvrant le droit civil, le droit des sociétés, le droit commercial et le règlement des litiges. Notre cabinet allie les valeurs juridiques traditionnelles à des approches modernes et stratégiques.",
+            "about.h1t": "L'intégrité avant tout", "about.h1s": "Une pratique éthique au cœur de notre action",
+            "about.h2t": "À l'écoute du client", "about.h2s": "Des stratégies sur mesure",
+            "about.h3t": "Multilingue", "about.h3s": "Arabe, français, anglais",
+            "about.h4t": "Service complet", "about.h4s": "Un accompagnement juridique de bout en bout",
+            "practice.label": "Domaines d'expertise",
+            "practice.title": "Une expertise juridique<br>complète",
+            "practice.subtitle": "Notre cabinet couvre un large éventail de disciplines juridiques et délivre un conseil stratégique adapté à l'environnement réglementaire propre au Liban.",
+            "pa.civil.t": "Droit civil",
+            "pa.civil.d": "Représentation complète dans les litiges civils, les questions de propriété, le droit de la famille, les successions et les droits de la personne au regard du Code civil libanais.",
+            "pa.corp.t": "Droit des sociétés",
+            "pa.corp.d": "Conseil stratégique en matière de création de sociétés, de gouvernance, de fusions-acquisitions, de pactes d'actionnaires et de conformité réglementaire.",
+            "pa.comm.t": "Droit commercial",
+            "pa.comm.d": "Traitement expert des contrats commerciaux, des litiges commerciaux, du droit bancaire, de la propriété intellectuelle et des transactions d'affaires.",
+            "pa.disp.t": "Règlement des litiges",
+            "pa.disp.d": "Services aguerris de contentieux, d'arbitrage et de médiation. Nous recherchons les meilleures issues par la négociation ou par une plaidoirie déterminée devant les tribunaux.",
+            "pa.real.t": "Droit immobilier",
+            "pa.real.d": "Accompagnement en matière d'acquisition de biens, de transactions immobilières, de baux, d'enregistrement foncier et de litiges de construction.",
+            "pa.intl.t": "Droit international",
+            "pa.intl.d": "Conseil juridique transfrontalier pour les entreprises internationales, les investissements étrangers au Liban et les questions juridiques des expatriés.",
+            "team.label": "Notre équipe",
+            "team.title": "Rencontrez nos<br>professionnels du droit",
+            "team.subtitle": "Une équipe dévouée d'avocats expérimentés, attachée à offrir un conseil juridique d'exception.",
+            "team.m1.name": "Me Elie Chamoun",
+            "team.m1.role": "Associé principal — Fondateur",
+            "team.m1.bio": "Plus de 10 ans d'expérience juridique. Diplômé de l'USEK. Expert en droit civil, des sociétés et commercial, avec une connaissance approfondie du paysage juridique libanais.",
+            "team.m2.name": "Me [Nom de l'associé]",
+            "team.m2.role": "Avocat collaborateur",
+            "team.m2.bio": "Spécialisé en gouvernance d'entreprise et en transactions commerciales, avec une orientation vers le droit des affaires libanais et international.",
+            "team.m3.name": "Me [Nom de l'associé]",
+            "team.m3.role": "Avocat collaborateur",
+            "team.m3.bio": "Axé sur le règlement des litiges et le contentieux, apportant une plaidoirie stratégique et une préparation méticuleuse des dossiers.",
+            "team.m4.name": "Me [Nom de l'associé]",
+            "team.m4.role": "Avocat collaborateur",
+            "team.m4.bio": "Expert en droit immobilier et en transactions foncières, offrant un accompagnement rigoureux aux clients de tout le Mont-Liban.",
+            "why.label": "Pourquoi nous choisir",
+            "why.title": "La différence<br>Chamoun",
+            "why.subtitle": "Ce qui distingue notre cabinet dans le paysage juridique libanais.",
+            "why.c1.t": "Une expertise locale approfondie",
+            "why.c1.d": "Nés et élevés au Liban, les membres de notre équipe maîtrisent les subtilités du système juridique local, de la culture et de l'environnement des affaires.",
+            "why.c2.t": "Une approche stratégique",
+            "why.c2.d": "Nous ne nous contentons pas d'appliquer la loi : nous élaborons des stratégies alignées sur vos objectifs, en anticipant les difficultés avant qu'elles ne surviennent.",
+            "why.c3.t": "Une communication transparente",
+            "why.c3.d": "Des informations claires, honnêtes et régulières. Nous vous tenons informé à chaque étape et expliquons les questions juridiques complexes en termes simples.",
+            "why.c4.t": "Orientés résultats",
+            "why.c4.d": "Notre bilan parle de lui-même. Nous mesurons notre réussite à l'aune des résultats que nous obtenons pour nos clients.",
+            "test.label": "Témoignages clients",
+            "test.title": "Ce que disent nos clients",
+            "test.subtitle": "La confiance que nos clients nous accordent est le fondement de notre pratique.",
+            "test.t1.quote": "Maître Chamoun a géré la restructuration de notre société avec un professionnalisme exceptionnel. Sa réflexion stratégique et sa connaissance approfondie du droit commercial libanais nous ont fait gagner un temps et des ressources considérables.",
+            "test.t1.role": "PDG, société de négoce — Beyrouth",
+            "test.t2.quote": "Nous étions confrontés à un litige immobilier complexe qui s'éternisait depuis des années. L'équipe de Chamoun & Associates l'a résolu de manière efficace et favorable. Je ne saurais trop les recommander.",
+            "test.t2.role": "Propriétaire foncier — Mont-Liban",
+            "test.t3.quote": "En tant qu'investisseur étranger, le droit libanais me semblait intimidant. Me Chamoun m'a apporté des conseils clairs et bilingues qui ont rendu tout le processus fluide. Un partenaire juridique véritablement fiable.",
+            "test.t3.role": "Investisseur — Paris / Beyrouth",
+            "banner.translation": "« La justice est le fondement du pouvoir »",
+            "contact.label": "Nous contacter",
+            "contact.title": "Prenez<br>rendez-vous",
+            "contact.text": "Que vous soyez confronté à un défi juridique ou que vous ayez besoin d'un conseil stratégique pour votre entreprise, notre équipe est prête à vous aider. Contactez-nous dès aujourd'hui pour une consultation confidentielle.",
+            "contact.addr.t": "Adresse du cabinet",
+            "contact.addr.v": "Immeuble Starbucks, 9ᵉ étage<br>Autoroute principale de Zalka, Zalka — Mont-Liban, Liban<br><em style=\"color:var(--gold-400);font-size:0.92em;\">Situé dans le célèbre immeuble Starbucks de Zalka — facile à trouver.</em>",
+            "contact.phone.t": "Téléphone",
+            "contact.email.t": "E-mail",
+            "contact.hours.t": "Horaires d'ouverture",
+            "contact.hours.v": "Lun – Ven : 9h00 – 18h00<br>Sam : 9h00 – 13h00",
+            "form.title": "Envoyez-nous un message",
+            "form.subtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons sous 24 heures.",
+            "form.firstName": "Prénom *", "form.firstName.ph": "Votre prénom",
+            "form.lastName": "Nom *", "form.lastName.ph": "Votre nom",
+            "form.email": "E-mail *",
+            "form.phone": "Téléphone",
+            "form.legalArea": "Domaine juridique",
+            "form.opt.select": "Sélectionnez un domaine",
+            "form.opt.civil": "Droit civil",
+            "form.opt.corporate": "Droit des sociétés",
+            "form.opt.commercial": "Droit commercial",
+            "form.opt.dispute": "Règlement des litiges",
+            "form.opt.realestate": "Droit immobilier",
+            "form.opt.international": "Droit international",
+            "form.opt.other": "Autre",
+            "form.message": "Votre message *", "form.message.ph": "Décrivez brièvement votre affaire juridique...",
+            "form.send": "Envoyer le message",
+            "form.sending": "Envoi en cours…",
+            "form.sent": "Message envoyé ✓",
+            "form.failed": "Échec — veuillez utiliser WhatsApp",
+            "footer.brand": "Un conseil juridique de confiance au Liban depuis 2014. Des solutions juridiques complètes, avec intégrité et excellence.",
+            "footer.quick": "Liens rapides",
+            "footer.quick.about": "À propos",
+            "footer.quick.practice": "Domaines d'expertise",
+            "footer.quick.team": "Notre équipe",
+            "footer.quick.test": "Témoignages",
+            "footer.quick.contact": "Contact",
+            "footer.pa": "Domaines d'expertise",
+            "footer.contact": "Contact",
+            "footer.addr1": "Immeuble Starbucks, 9ᵉ étage",
+            "footer.addr2": "Autoroute principale de Zalka, Mont-Liban",
+            "footer.copyright": "© 2026 Cabinet Chamoun & Associates. Tous droits réservés.",
+            "footer.tagline": "Conçu avec précision et soin",
+            "wa.aria": "Discuter sur WhatsApp"
+        },
+        ar: {
+            "nav.about": "من نحن",
+            "nav.practice": "مجالات الممارسة",
+            "nav.team": "فريقنا",
+            "nav.testimonials": "شهادات العملاء",
+            "nav.contact": "اتصل بنا",
+            "hero.badge": "مكتب محاماة راسخ في لبنان",
+            "hero.h1": "مشورة قانونية<br>موثوقة في عالمٍ<br><span class=\"gold\">معقّد</span>",
+            "hero.intro": "بخبرة تتجاوز عقدًا من الزمن في التعامل مع المشهد القانوني اللبناني، يقدّم مكتب شمعون وشركاه مشورة استراتيجية موجّهة نحو النتائج في القانون المدني وقانون الشركات والقانون التجاري.",
+            "hero.cta1": "احجز استشارة",
+            "hero.cta2": "خبراتنا",
+            "hero.stat1": "سنوات من الخبرة",
+            "hero.stat2": "قضية تمّت معالجتها",
+            "hero.stat3": "نسبة النجاح",
+            "trust.bar": "نقابة المحامين في بيروت",
+            "trust.usek": "خرّيج جامعة الروح القدس — الكسليك",
+            "trust.multi": "فريق متعدّد اللغات",
+            "trust.record": "سجلّ حافل بالنجاحات",
+            "about.label": "عن المكتب",
+            "about.title": "إرثٌ من التميّز<br>القانوني في لبنان",
+            "about.p1": "أسّسه <strong>المحامي إيلي شمعون</strong>، وقد رسّخ مكتب شمعون وشركاه مكانته كأحد أبرز مكاتب المحاماة في جبل لبنان. وبفضل جذورنا العميقة في المنطقة وفهمنا الدقيق للإطار القانوني اللبناني، نقدّم حلولًا قانونية شاملة مصمّمة وفق الاحتياجات الخاصة لكل عميل.",
+            "about.p2": "وهو خرّيج <strong>جامعة الروح القدس — الكسليك (USEK)</strong> العريقة، يجلب المحامي شمعون خبرةً تتجاوز العقد من الزمن تشمل القضايا المدنية وقضايا الشركات والقضايا التجارية وحلّ النزاعات. ويجمع مكتبنا بين القيم القانونية العريقة والمقاربات الحديثة والاستراتيجية.",
+            "about.h1t": "النزاهة أولًا", "about.h1s": "الممارسة الأخلاقية في صميم عملنا",
+            "about.h2t": "العميل في المقدّمة", "about.h2s": "استراتيجيات مصمّمة خصيصًا",
+            "about.h3t": "متعدّد اللغات", "about.h3s": "العربية والفرنسية والإنكليزية",
+            "about.h4t": "خدمة متكاملة", "about.h4s": "دعم قانوني شامل من الألف إلى الياء",
+            "practice.label": "مجالات الممارسة",
+            "practice.title": "خبرة قانونية<br>شاملة",
+            "practice.subtitle": "يغطّي مكتبنا طيفًا واسعًا من الاختصاصات القانونية، ويقدّم مشورة استراتيجية مصمّمة وفق البيئة التنظيمية الخاصة بلبنان.",
+            "pa.civil.t": "القانون المدني",
+            "pa.civil.d": "تمثيل شامل في النزاعات المدنية، ومسائل الملكية، وقانون الأحوال الشخصية، والإرث، والحقوق الشخصية بموجب القانون المدني اللبناني.",
+            "pa.corp.t": "قانون الشركات",
+            "pa.corp.d": "مشورة استراتيجية في تأسيس الشركات، والحوكمة، وعمليات الدمج والاستحواذ، واتفاقيات المساهمين، والامتثال التنظيمي.",
+            "pa.comm.t": "القانون التجاري",
+            "pa.comm.d": "معالجة احترافية للعقود التجارية، والنزاعات التجارية، والقانون المصرفي، والملكية الفكرية، والمعاملات التجارية.",
+            "pa.disp.t": "حلّ النزاعات",
+            "pa.disp.d": "خدمات متمرّسة في التقاضي والتحكيم والوساطة. نسعى إلى أفضل النتائج عبر التفاوض أو عبر مرافعة حازمة أمام المحاكم.",
+            "pa.real.t": "القانون العقاري",
+            "pa.real.d": "إرشاد في اقتناء العقارات، والمعاملات العقارية، وعقود الإيجار، والتسجيل العقاري، ونزاعات البناء.",
+            "pa.intl.t": "القانون الدولي",
+            "pa.intl.d": "استشارات قانونية عابرة للحدود للشركات الدولية، والاستثمارات الأجنبية في لبنان، والمسائل القانونية للمغتربين.",
+            "team.label": "فريقنا",
+            "team.title": "تعرّف على<br>محترفينا القانونيين",
+            "team.subtitle": "فريق متفانٍ من المحامين ذوي الخبرة، ملتزم بتقديم مشورة قانونية استثنائية.",
+            "team.m1.name": "المحامي إيلي شمعون",
+            "team.m1.role": "الشريك الأول — المؤسّس",
+            "team.m1.bio": "أكثر من 10 سنوات من الخبرة القانونية. خرّيج جامعة الروح القدس (USEK). خبير في القانون المدني وقانون الشركات والقانون التجاري، مع فهم عميق للمشهد القانوني اللبناني.",
+            "team.m2.name": "المحامي [اسم الزميل]",
+            "team.m2.role": "محامٍ مساعد",
+            "team.m2.bio": "متخصّص في حوكمة الشركات والمعاملات التجارية، مع تركيز على قانون الأعمال اللبناني والدولي.",
+            "team.m3.name": "المحامي [اسم الزميل]",
+            "team.m3.role": "محامٍ مساعد",
+            "team.m3.bio": "يركّز على حلّ النزاعات والتقاضي، ويقدّم مرافعة استراتيجية وإعدادًا دقيقًا للقضايا.",
+            "team.m4.name": "المحامي [اسم الزميل]",
+            "team.m4.role": "محامٍ مساعد",
+            "team.m4.bio": "خبير في القانون العقاري والمعاملات العقارية، يقدّم إرشادًا دقيقًا للعملاء في مختلف أنحاء جبل لبنان.",
+            "why.label": "لماذا تختارنا",
+            "why.title": "فرق<br>شمعون",
+            "why.subtitle": "ما يميّز مكتبنا في المشهد القانوني اللبناني.",
+            "why.c1.t": "خبرة محلّية عميقة",
+            "why.c1.d": "وُلد فريقنا ونشأ في لبنان، ويدرك تعقيدات النظام القانوني المحلّي والثقافة وبيئة الأعمال.",
+            "why.c2.t": "مقاربة استراتيجية",
+            "why.c2.d": "نحن لا نكتفي بتطبيق القانون، بل نصوغ استراتيجيات تتماشى مع أهدافك، ونستبق التحدّيات قبل وقوعها.",
+            "why.c3.t": "تواصل شفّاف",
+            "why.c3.d": "تحديثات واضحة وصادقة ومنتظمة. نُبقيك على اطّلاع في كل مرحلة، ونشرح المسائل القانونية المعقّدة بلغة بسيطة.",
+            "why.c4.t": "موجّهون نحو النتائج",
+            "why.c4.d": "سجلّنا يتحدّث عن نفسه. نقيس نجاحنا بالنتائج التي نحقّقها لعملائنا.",
+            "test.label": "شهادات العملاء",
+            "test.title": "ماذا يقول عملاؤنا",
+            "test.subtitle": "الثقة التي يمنحنا إياها عملاؤنا هي أساس ممارستنا.",
+            "test.t1.quote": "تولّى المحامي شمعون إعادة هيكلة شركتنا باحترافية استثنائية. وقد وفّر علينا تفكيره الاستراتيجي ومعرفته العميقة بالقانون التجاري اللبناني وقتًا وموارد كبيرة.",
+            "test.t1.role": "الرئيس التنفيذي، شركة تجارية — بيروت",
+            "test.t2.quote": "كنّا نواجه نزاعًا عقاريًا معقّدًا استمرّ سنوات. وقد حلّه فريق شمعون وشركاه بكفاءة وبما يخدم مصلحتنا. لا أجد كلمات كافية للتوصية بهم.",
+            "test.t2.role": "مالك عقار — جبل لبنان",
+            "test.t3.quote": "بصفتي مستثمرًا أجنبيًا، بدا لي القانون اللبناني أمرًا شائكًا. قدّم لي المحامي شمعون إرشادًا واضحًا وثنائي اللغة جعل العملية برمّتها سلسة. شريك قانوني موثوق حقًّا.",
+            "test.t3.role": "مستثمر — باريس / بيروت",
+            "banner.translation": "«العدل أساس الملك»",
+            "contact.label": "تواصل معنا",
+            "contact.title": "احجز<br>استشارتك",
+            "contact.text": "سواء كنت تواجه تحدّيًا قانونيًا أو بحاجة إلى مشورة استراتيجية لأعمالك، فإن فريقنا جاهز لمساعدتك. تواصل معنا اليوم للحصول على استشارة سرّية.",
+            "contact.addr.t": "عنوان المكتب",
+            "contact.addr.v": "مبنى ستاربكس، الطابق التاسع<br>أوتوستراد الزلقا الرئيسي، الزلقا — جبل لبنان، لبنان<br><em style=\"color:var(--gold-400);font-size:0.92em;\">يقع في مبنى ستاربكس المعروف في الزلقا — يسهل الوصول إليه.</em>",
+            "contact.phone.t": "الهاتف",
+            "contact.email.t": "البريد الإلكتروني",
+            "contact.hours.t": "ساعات العمل",
+            "contact.hours.v": "الإثنين – الجمعة: 9:00 صباحًا – 6:00 مساءً<br>السبت: 9:00 صباحًا – 1:00 ظهرًا",
+            "form.title": "أرسل لنا رسالة",
+            "form.subtitle": "املأ النموذج أدناه وسنعاود التواصل معك خلال 24 ساعة.",
+            "form.firstName": "الاسم الأول *", "form.firstName.ph": "اسمك الأول",
+            "form.lastName": "اسم العائلة *", "form.lastName.ph": "اسم عائلتك",
+            "form.email": "البريد الإلكتروني *",
+            "form.phone": "الهاتف",
+            "form.legalArea": "المجال القانوني",
+            "form.opt.select": "اختر مجال ممارسة",
+            "form.opt.civil": "القانون المدني",
+            "form.opt.corporate": "قانون الشركات",
+            "form.opt.commercial": "القانون التجاري",
+            "form.opt.dispute": "حلّ النزاعات",
+            "form.opt.realestate": "القانون العقاري",
+            "form.opt.international": "القانون الدولي",
+            "form.opt.other": "أخرى",
+            "form.message": "رسالتك *", "form.message.ph": "صِف باختصار مسألتك القانونية...",
+            "form.send": "إرسال الرسالة",
+            "form.sending": "جارٍ الإرسال…",
+            "form.sent": "تم إرسال الرسالة ✓",
+            "form.failed": "فشل الإرسال — يُرجى استخدام واتساب",
+            "footer.brand": "مشورة قانونية موثوقة في لبنان منذ عام 2014. نقدّم حلولًا قانونية شاملة بنزاهة وتميّز.",
+            "footer.quick": "روابط سريعة",
+            "footer.quick.about": "من نحن",
+            "footer.quick.practice": "مجالات الممارسة",
+            "footer.quick.team": "فريقنا",
+            "footer.quick.test": "شهادات العملاء",
+            "footer.quick.contact": "اتصل بنا",
+            "footer.pa": "مجالات الممارسة",
+            "footer.contact": "اتصل بنا",
+            "footer.addr1": "مبنى ستاربكس، الطابق التاسع",
+            "footer.addr2": "أوتوستراد الزلقا الرئيسي، جبل لبنان",
+            "footer.copyright": "© 2026 مكتب شمعون وشركاه للمحاماة. جميع الحقوق محفوظة.",
+            "footer.tagline": "صُمّم بدقّة وعناية",
+            "wa.aria": "الدردشة عبر واتساب"
+        }
+    };
+
+    let currentLang = 'en';
+    // Safe rich-text setter: parses TRUSTED static dictionary strings (only <br>/<strong>/<em>/<span>)
+    // into real DOM nodes via a whitelist walker — never assigns innerHTML.
+    const RICH_ALLOWED = { 'BR': [], 'STRONG': [], 'EM': ['style'], 'SPAN': ['class'] };
+    function buildNodes(html, target) {
+        const doc = new DOMParser().parseFromString('<div>' + html + '</div>', 'text/html');
+        const src = doc.body.firstChild;
+        const walk = (from, to) => {
+            from.childNodes.forEach(node => {
+                if (node.nodeType === 3) {
+                    to.appendChild(document.createTextNode(node.nodeValue));
+                } else if (node.nodeType === 1 && RICH_ALLOWED[node.tagName]) {
+                    const clean = document.createElement(node.tagName);
+                    RICH_ALLOWED[node.tagName].forEach(attr => {
+                        if (node.hasAttribute(attr)) clean.setAttribute(attr, node.getAttribute(attr));
+                    });
+                    walk(node, clean);
+                    to.appendChild(clean);
+                } else if (node.nodeType === 1) {
+                    walk(node, to); // unknown tag: keep its text content only
+                }
+            });
+        };
+        walk(src, target);
+    }
+    function setRichText(el, html) {
+        while (el.firstChild) el.removeChild(el.firstChild);
+        buildNodes(html, el);
+    }
+
+    function setLang(lang) {
+        if (!I18N[lang]) lang = 'en';
+        currentLang = lang;
+        const dict = I18N[lang];
+        document.documentElement.lang = lang;
+        document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const v = dict[el.getAttribute('data-i18n')];
+            if (v != null) el.textContent = v;
+        });
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const v = dict[el.getAttribute('data-i18n-html')];
+            if (v != null) setRichText(el, v);
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const v = dict[el.getAttribute('data-i18n-placeholder')];
+            if (v != null) el.setAttribute('placeholder', v);
+        });
+        document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+            const v = dict[el.getAttribute('data-i18n-aria')];
+            if (v != null) el.setAttribute('aria-label', v);
+        });
+        document.querySelectorAll('#langSwitch button').forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        try { localStorage.setItem('cl_lang', lang); } catch (e) {}
+    }
+    (function initLang() {
+        let saved = 'en';
+        try { saved = localStorage.getItem('cl_lang') || 'en'; } catch (e) {}
+        setLang(saved);
+    })();
+
     // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
@@ -1495,9 +1988,10 @@
         e.preventDefault();
         const form = e.target;
         const btn = form.querySelector('.form-submit');
-        const originalText = btn.textContent;
+        const t = (I18N[currentLang] || I18N.en);
+        const originalText = t['form.send'] || btn.textContent;
         btn.disabled = true;
-        btn.textContent = 'Sending…';
+        btn.textContent = t['form.sending'] || 'Sending…';
         try {
             const res = await fetch('https://formsubmit.co/ajax/eliejchamoun@gmail.com', {
                 method: 'POST',
@@ -1505,11 +1999,11 @@
                 body: new FormData(form)
             });
             if (!res.ok) throw new Error('Network error');
-            btn.textContent = 'Message Sent ✓';
+            btn.textContent = t['form.sent'] || 'Message Sent ✓';
             btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
             form.reset();
         } catch (err) {
-            btn.textContent = 'Failed — please use WhatsApp';
+            btn.textContent = t['form.failed'] || 'Failed — please use WhatsApp';
             btn.style.background = 'linear-gradient(135deg, #b91c1c, #7f1d1d)';
         } finally {
             setTimeout(() => {
@@ -1524,7 +2018,7 @@
 <!-- ========== FLOATING WHATSAPP BUTTON ========== -->
 <a href="https://wa.me/96170947217?text=Hello%2C%20I%20would%20like%20to%20request%20a%20legal%20consultation%20with%20Chamoun%20%26%20Associates."
    target="_blank" rel="noopener"
-   aria-label="Chat on WhatsApp"
+   aria-label="Chat on WhatsApp" data-i18n-aria="wa.aria"
    style="position:fixed;bottom:24px;right:24px;z-index:9999;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);transition:transform .25s ease,box-shadow .25s ease;"
    onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 8px 26px rgba(37,211,102,0.6)';"
    onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 20px rgba(37,211,102,0.45)';">
