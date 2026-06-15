@@ -1303,6 +1303,9 @@
                 <h3>Send Us a Message</h3>
                 <p>Fill in the form below and we'll get back to you within 24 hours.</p>
                 <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <input type="hidden" name="_subject" value="New enquiry — Chamoun & Associates website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name *</label>
@@ -1444,19 +1447,47 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
     // Form handling
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        const btn = e.target.querySelector('.form-submit');
+        const form = e.target;
+        const btn = form.querySelector('.form-submit');
         const originalText = btn.textContent;
-        btn.textContent = 'Message Sent!';
-        btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
-        setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            e.target.reset();
-        }, 3000);
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        try {
+            const res = await fetch('https://formsubmit.co/ajax/eliejchamoun@gmail.com', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+            });
+            if (!res.ok) throw new Error('Network error');
+            btn.textContent = 'Message Sent ✓';
+            btn.style.background = 'linear-gradient(135deg, #16a34a, #15803d)';
+            form.reset();
+        } catch (err) {
+            btn.textContent = 'Failed — please use WhatsApp';
+            btn.style.background = 'linear-gradient(135deg, #b91c1c, #7f1d1d)';
+        } finally {
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                btn.disabled = false;
+            }, 4500);
+        }
     }
 </script>
+
+<!-- ========== FLOATING WHATSAPP BUTTON ========== -->
+<a href="https://wa.me/96170947217?text=Hello%2C%20I%20would%20like%20to%20request%20a%20legal%20consultation%20with%20Chamoun%20%26%20Associates."
+   target="_blank" rel="noopener"
+   aria-label="Chat on WhatsApp"
+   style="position:fixed;bottom:24px;right:24px;z-index:9999;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,0.45);transition:transform .25s ease,box-shadow .25s ease;"
+   onmouseover="this.style.transform='scale(1.08)';this.style.boxShadow='0 8px 26px rgba(37,211,102,0.6)';"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 6px 20px rgba(37,211,102,0.45)';">
+    <svg viewBox="0 0 32 32" width="32" height="32" fill="#ffffff" aria-hidden="true">
+        <path d="M16.04 4C9.86 4 4.84 9.02 4.84 15.2c0 2.17.64 4.2 1.74 5.92L4.5 28l7.06-2.04a11.13 11.13 0 0 0 4.48.94h.01c6.18 0 11.2-5.02 11.2-11.2 0-2.99-1.17-5.8-3.28-7.92A11.13 11.13 0 0 0 16.04 4zm0 2.05c2.43 0 4.71.95 6.43 2.67a9.05 9.05 0 0 1 2.67 6.44c0 5.02-4.08 9.1-9.11 9.1-1.5 0-2.97-.38-4.27-1.1l-.31-.18-4.19 1.21 1.23-4.08-.2-.32a9.02 9.02 0 0 1-1.39-4.84c0-5.02 4.09-9.1 9.11-9.1zm-5.06 4.9c-.24 0-.63.09-.96.45-.33.36-1.26 1.23-1.26 3 0 1.77 1.29 3.48 1.47 3.72.18.24 2.54 3.88 6.16 5.3 3.01 1.18 3.62.95 4.28.89.66-.06 2.12-.87 2.42-1.71.3-.84.3-1.56.21-1.71-.09-.15-.33-.24-.69-.42-.36-.18-2.12-1.05-2.45-1.17-.33-.12-.57-.18-.81.18-.24.36-.93 1.17-1.14 1.41-.21.24-.42.27-.78.09-.36-.18-1.51-.56-2.88-1.78-1.06-.95-1.78-2.12-1.99-2.48-.21-.36-.02-.55.16-.73.16-.16.36-.42.54-.63.18-.21.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.81-1.95-1.11-2.67-.29-.7-.59-.61-.81-.62-.21-.01-.45-.01-.69-.01z"/>
+    </svg>
+</a>
 
 </body>
 </html>
